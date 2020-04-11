@@ -3,4 +3,6 @@ class Location < ApplicationRecord
 
     # add validations
     # presence & uniqueness of park
+    validates :park, presence: true
+    validates :park, uniqueness: true
 end

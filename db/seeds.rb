@@ -1,6 +1,5 @@
 require 'faker'
 
-
 # LOCATION
 Location.create(park: 'Yosemite' , image: 'https://wallpaper-house.com/data/out/7/wallpaper2you_162315.jpg', is_wishlist?: false, is_done?: true, lat: 37.865101 , long: -119.538330)
 Location.create(park: 'Yellowstone' , image: 'https://wallpaper-house.com/data/out/10/wallpaper2you_461363.jpg', is_wishlist?: false, is_done?: true, lat: 44.412266, long: -110.723183)
