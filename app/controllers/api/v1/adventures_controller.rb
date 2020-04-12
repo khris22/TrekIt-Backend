@@ -5,20 +5,33 @@ class Api::V1::AdventuresController < ApplicationController
     def index
         # @adventures = Adventure.all
         @adventures = @location.adventures.all
-        render json:  @adventures, status: 200
+        # options = {
+        #     include: [:location]
+        # }
+        # render json:  AdventureSerializer.new(@adventures, options), status: 200
+        # Better json render with relationships >>>>
+        render json: @adventures.to_json(include: [:location]), status: 200 
     end
 
     def show
         # @adventure = Adventure.find_by(id:params[:id])
         @adventure = @location.adventures.find_by(id:params[:id])
-        render json: @adventure, status: 200
+        # options = {
+        #     include: [:location]
+        # }
+        # render json:  AdventureSerializer.new(@adventure, options), status: 200
+        render json: @adventure.to_json(include: [:location]), status: 200 
     end
 
     def create
         @adventure = @location.adventures.build(adventure_params)
         # @adventure = @location.adventures.new(adventure_params)
         if @adventure.save
-            render json: @adventure, status: 200
+            render json:  AdventureSerializer.new(@adventure), status: 200
+            # options = {
+            #     include: [:location]
+            # }
+            # render json:  AdventureSerializer.new(@adventure, options), status: 200
         else
             render json: {error: 'UNABLE TO SAVE ADVENTURE'}
         end
