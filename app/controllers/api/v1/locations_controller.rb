@@ -2,9 +2,9 @@ class Api::V1::LocationsController < ApplicationController
 
     def index
         @locations = Location.all
-        options = {
-            include: [:adventures]
-        }
+        # options = {
+        #     include: [:adventures]
+        # }
         # render json: LocationSerializer.new(@locations, options), status: 200
         # Better json render with relationships >>>>
         render json: @locations.to_json(include: [:adventures]), status: 200
@@ -20,9 +20,11 @@ class Api::V1::LocationsController < ApplicationController
     end
 
     def create
+        # binding.pry
         @location= Location.new(location_params)
         if @location.save
-            render json: LocationSerializer.new(@location), status: 200
+            render json: @location.to_json(include: [:adventures]), status: 200
+            # render json: LocationSerializer.new(@location), status: 200
             # options = {
             #     include: [:adventures]
             # }

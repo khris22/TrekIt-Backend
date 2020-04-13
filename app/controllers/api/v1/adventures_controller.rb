@@ -24,6 +24,7 @@ class Api::V1::AdventuresController < ApplicationController
     end
 
     def create
+       
         @adventure = @location.adventures.build(adventure_params)
         # @adventure = @location.adventures.new(adventure_params)
         if @adventure.save
