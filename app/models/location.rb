@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-    has_many :adventures
+    has_many :adventures, dependent: :destroy
 
     # add validations
     # presence & uniqueness of park
