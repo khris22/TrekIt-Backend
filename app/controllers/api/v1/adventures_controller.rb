@@ -43,14 +43,20 @@ class Api::V1::AdventuresController < ApplicationController
         end
     end
 
-    # def update
-    # end
+    def update
+        # binding.pry
+        @adventure = Adventure.find_by(id:params[:id])
+        @location = Location.find(@adventure.location_id)
+        @adventure.update(adventure_params)
+        render json: @location.to_json(include: [:adventures]), status: 200
+    end
 
-    def destroy  
+    def destroy 
+        # binding.pry 
         @adventure = Adventure.find_by(id:params[:id])
         @location = Location.find(@adventure.location_id)
         @adventure.destroy
-        render json: @adventure
+        render json: @location.to_json(include: [:adventures]), status: 200
     end
 
     private
