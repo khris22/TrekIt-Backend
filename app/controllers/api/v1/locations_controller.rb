@@ -41,7 +41,7 @@ class Api::V1::LocationsController < ApplicationController
     def destroy  
         @location = Location.find_by(id:params[:id])
         @location.destroy
-        render json: @location
+        render json: @location.to_json(include: [:adventures]), status: 200
     end
 
     private
