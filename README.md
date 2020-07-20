@@ -2,6 +2,8 @@
 
 Demo: https://youtu.be/5FwDy0OGc9Y
 
+Blog Post: https://khris22.github.io/trekkingit_on_react-redux
+
 trekIt is an app for everybody who wants to track their outdoor adventures. This app uses Geocoder to help you search a particular location/park on the web and Mapbox to visually render your own map of adventures.
 
 There are 2 repositories to have the trekIt app working. Please clone both links:
